@@ -63,8 +63,10 @@ public class CreateAmbientServlet extends HttpServlet {
 			ambient = new Ambiente(name, tipo, ubicazione, 0);
 			
 		} catch (NullException e) {
+			
+			String message = e.getMessage();
 
-			System.out.println(e.getMessage());
+			System.out.println(message);
 		}
 		
 		if (errorString == null) {
@@ -73,7 +75,9 @@ public class CreateAmbientServlet extends HttpServlet {
 				DBUtils.insertAmbient(conn, ambient);
 				
 			} catch (SQLException e) {
-				System.out.println(e.getMessage());
+				String message = e.getMessage();
+
+				System.out.println(message);
 				errorString = e.getMessage();
 			}
 		}	
@@ -87,7 +91,9 @@ public class CreateAmbientServlet extends HttpServlet {
 			
 		} catch (SQLException e) {
 			
-			System.out.println(e.getMessage());
+			String message = e.getMessage();
+
+			System.out.println(message);
 		}
 		
 		if (errorString == null) {
@@ -107,7 +113,9 @@ public class CreateAmbientServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 				
-					System.out.println(e.getMessage());
+					String message = e.getMessage();
+
+					System.out.println(message);
 				}
 			
 				admin.setAmbientID(user.getAmbientID());
@@ -117,7 +125,9 @@ public class CreateAmbientServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 					
-					System.out.println(e.getMessage());
+					String message = e.getMessage();
+
+					System.out.println(message);
 				}
 
 			}
@@ -130,7 +140,9 @@ public class CreateAmbientServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 					
-					System.out.println(e.getMessage());
+					String message = e.getMessage();
+
+					System.out.println(message);
 					errorString = e.getMessage();
 				}
 			
@@ -142,7 +154,9 @@ public class CreateAmbientServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 				
-					System.out.println(e.getMessage());
+					String message = e.getMessage();
+
+					System.out.println(message);
 				}
 			
 				admin.setAmbientID(user.getAmbientID());
@@ -152,7 +166,9 @@ public class CreateAmbientServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 					
-					System.out.println(e.getMessage());
+					String message = e.getMessage();
+
+					System.out.println(message);
 				}
 			}
 		}
