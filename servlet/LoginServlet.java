@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,7 +57,9 @@ public class LoginServlet extends HttpServlet {
 		boolean hasError = false;
 		String errorString = null;
 		
-		String path = "C:\\Users\\steve\\Desktop\\Rilevazioni.txt";
+		ServletContext cs = getServletContext();
+		
+		String path = cs.getRealPath("/") + "/WEB-INF/Rilevazioni.txt";
 		
 		File rilevazioniF = new File(path);
 		
