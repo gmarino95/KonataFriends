@@ -51,12 +51,6 @@ public class LoginServlet extends HttpServlet {
 		String rememberMeStr = request.getParameter("rememberMe");
 		boolean remember = "Y".equals(rememberMeStr);
 		
-		if(!name.matches("[0-9a-zA-Z]"))
-			System.out.println("Errore");
-		
-		if(!password.matches("[a-zA-Z0-9 ]"))
-			System.out.println("Errore");
-		
 		UserAccount user = null;
 		boolean hasError = false;
 		String errorString = null;
