@@ -129,64 +129,13 @@ public class MyUtils {
 			Rilevazione rilevazione = new Rilevazione();
 			
 			//Controllo la prima stringa
-			if(Character.isLowerCase(array[0].charAt(0))) {
-				
-				rilevazione.setDescrizione(array[0]);
-				
-			} else if(Character.isUpperCase(array[0].charAt(0))) {
-				
-				rilevazione.setMessaggio(array[0]);
-				
-			} else {
-				
-				Sensore sens = DBUtils.findSensore(conn, array[0]);
-				
-				int sensId = Integer.parseInt(array[0]);
-				
-				rilevazione.setSensID(sensId);
-				rilevazione.setMarca(sens.getMarca());
-				rilevazione.setModello(sens.getModello());
-			}
+			stringControl(rilevazione, array[0], conn);
 			
 			//Controllo la seconda stringa
-			if(Character.isLowerCase(array[1].charAt(0))) {
-				
-				rilevazione.setDescrizione(array[1]);
-				
-			} else if(Character.isUpperCase(array[1].charAt(0))) {
-				
-				rilevazione.setMessaggio(array[1]); 
-				
-			} else {
-				
-				Sensore sens = DBUtils.findSensore(conn, array[1]);
-				
-				int sensId = Integer.parseInt(array[1]);
-				
-				rilevazione.setSensID(sensId);
-				rilevazione.setMarca(sens.getMarca());
-				rilevazione.setModello(sens.getModello());
-			}
+			stringControl(rilevazione, array[1], conn);
 			
 			//Controllo la terza stringa
-			if(Character.isLowerCase(array[2].charAt(0))) {
-				
-				rilevazione.setDescrizione(array[2]);
-				
-			} else if(Character.isUpperCase(array[2].charAt(0))) {
-				
-				rilevazione.setMessaggio(array[2]);
-				
-			} else {
-				
-				Sensore sens = DBUtils.findSensore(conn, array[2]);
-				
-				int sensId = Integer.parseInt(array[2]);
-				
-				rilevazione.setSensID(sensId);
-				rilevazione.setMarca(sens.getMarca());
-				rilevazione.setModello(sens.getModello());
-			}
+			stringControl(rilevazione, array[2], conn);
 			
 			//Trasformo la quarta stringa
 			Date parsed = null;
@@ -208,6 +157,28 @@ public class MyUtils {
 		}
 		
 		inputStream.close();
+	}
+	
+	public static void stringControl(Rilevazione rilevazione, String array, Connection conn) throws NullException, SQLException, ZeroException {
+		
+		if(Character.isLowerCase(array.charAt(0))) {
+			
+			rilevazione.setDescrizione(array);
+			
+		} else if(Character.isUpperCase(array.charAt(0))) {
+			
+			rilevazione.setMessaggio(array);
+			
+		} else {
+			
+			Sensore sens = DBUtils.findSensore(conn, array);
+			
+			int sensId = Integer.parseInt(array);
+			
+			rilevazione.setSensID(sensId);
+			rilevazione.setMarca(sens.getMarca());
+			rilevazione.setModello(sens.getModello());
+		}
 	}
 	
 	public static void createPDF(ArrayList<Rilevazione> sintesi, String username, String name, OutputStream out) throws DocumentException, IOException {

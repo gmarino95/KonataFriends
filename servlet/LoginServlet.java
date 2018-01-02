@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -59,22 +60,7 @@ public class LoginServlet extends HttpServlet {
 		
 		File rilevazioniF = new File(path);
 		
-		try {
-			
-			MyUtils.obtainRelev(rilevazioniF, conn);
-			
-		} catch (NullException e) {
-			
-			System.out.println("NullException");
-			
-		} catch (SQLException e) {
-			
-			System.out.println("SQLException");
-			
-		} catch (ZeroException e) {
-			
-			System.out.println("ZeroException");
-		}
+		obtainRelev(rilevazioniF, conn);
 		
 		if(name == null || password == null || name.length() == 0 || password.length() == 0) {
 			
@@ -136,6 +122,26 @@ public class LoginServlet extends HttpServlet {
 			
 			//Redirect to Ambient page
 			response.sendRedirect(request.getContextPath() + "/ambientList");
+		}
+	}
+	
+	public void obtainRelev(File file, Connection conn) throws FileNotFoundException {
+		
+		try {
+			
+			MyUtils.obtainRelev(file, conn);
+			
+		} catch (NullException e) {
+			
+			System.out.println("NullException");
+			
+		} catch (SQLException e) {
+			
+			System.out.println("SQLException");
+			
+		} catch (ZeroException e) {
+			
+			System.out.println("ZeroException");
 		}
 	}
 }

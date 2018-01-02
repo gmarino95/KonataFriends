@@ -55,23 +55,7 @@ public class CreateSensorServlet extends HttpServlet {
 
 		Connection conn = MyUtils.getStoredConnection(request);
 		
-		Ambiente amb = null;
-		
-		try {
-			amb = DBUtils.findAmbiente(conn, AmbientListServlet.id);
-			
-		} catch (SQLException e) {
-			
-			System.out.println("SQLException");
-			
-		} catch (ZeroException e) {
-			
-			System.out.println("ZeroException");
-			
-		} catch (NullException e) {
-			
-			System.out.println("NullException");
-		}
+		Ambiente amb = findAmbiente(conn);
 		
 		Sensore sensor = null;
 		
@@ -116,6 +100,7 @@ public class CreateSensorServlet extends HttpServlet {
 				
 				System.out.println("SQLException");
 				errorString = e.getMessage();
+			}
 		}
 		
 		// Store infomation to request attribute, before forward to views.
@@ -134,5 +119,26 @@ public class CreateSensorServlet extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/sensorList");
 		}	
 	}
+	
+	public Ambiente findAmbiente(Connection conn) {
+		
+		Ambiente amb = null;
+		
+		try {
+			amb = DBUtils.findAmbiente(conn, AmbientListServlet.id);
+			
+		} catch (SQLException e) {
+			
+			System.out.println("SQLException");
+			
+		} catch (ZeroException e) {
+			
+			System.out.println("ZeroException");
+			
+		} catch (NullException e) {
+			
+			System.out.println("NullException");
+		}
+		return amb;
 	}
 }
