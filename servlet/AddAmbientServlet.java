@@ -69,9 +69,9 @@ public class AddAmbientServlet extends HttpServlet {
 		try {
 			user = DBUtils.findUser(conn, username);
 			
-		} catch (SQLException e2) {
+		} catch (SQLException e) {
 			
-			e2.printStackTrace();
+			System.out.println("SQLException");
 		}
 		
 		newUser = new UserAccount(username);
@@ -86,7 +86,8 @@ public class AddAmbientServlet extends HttpServlet {
 				DBUtils.insertUser(conn, newUser);
 				
 			} catch (SQLException e) {
-				e.printStackTrace();
+				
+				System.out.println("SQLException");
 				errorString = e.getMessage();
 			}
 		}

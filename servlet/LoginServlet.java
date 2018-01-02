@@ -63,9 +63,17 @@ public class LoginServlet extends HttpServlet {
 			
 			MyUtils.obtainRelev(rilevazioniF, conn);
 			
-		} catch (NullException | SQLException | ZeroException e1) {
+		} catch (NullException e) {
 			
-			e1.printStackTrace();
+			System.out.println("NullException");
+			
+		} catch (SQLException e) {
+			
+			System.out.println("SQLException");
+			
+		} catch (ZeroException e) {
+			
+			System.out.println("ZeroException");
 		}
 		
 		if(name == null || password == null || name.length() == 0 || password.length() == 0) {
@@ -87,7 +95,7 @@ public class LoginServlet extends HttpServlet {
 			
 			} catch(SQLException e) {
 				
-				e.printStackTrace();
+				System.out.println("SQLException");
 				hasError = true;
 				errorString = e.getMessage();
 			}

@@ -62,7 +62,8 @@ public class CookieFilter  implements Filter{
 				UserAccount user = DBUtils.findUser(conn, userName);
 				MyUtils.storeLoginedUser(session, user);
 			} catch(SQLException e) {
-				e.printStackTrace();
+				
+				System.out.println("SQLException");
 			}
 			//Mark checked Cookies
 			session.setAttribute("COOKIE_CHECKED", "CHECKED");

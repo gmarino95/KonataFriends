@@ -196,7 +196,7 @@ public class MyUtils {
 				
 			} catch (ParseException e1) {
 
-				e1.printStackTrace();
+				System.out.println("ParseException");
 			}
 			
 			Timestamp data = new java.sql.Timestamp(parsed.getTime());
@@ -225,7 +225,8 @@ public class MyUtils {
 			document.close();
 		
 		} catch (DocumentException e) {
-			e.printStackTrace();
+			
+			System.out.println("DocumentException");
 		}
 		
 	}

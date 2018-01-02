@@ -44,17 +44,17 @@ public class SummaryServlet extends HttpServlet {
 			
 		} catch(SQLException e) {
 			
-			e.printStackTrace();
+			System.out.println("SQLException");
 			errorString = e.getMessage();
 			
 		} catch (ZeroException e) {
 			
-			e.printStackTrace();
+			System.out.println("ZeroException");
 			errorString = e.getMessage();
 			
 		} catch (NullException e) {
 			
-			e.printStackTrace();
+			System.out.println("NullException");
 			errorString = e.getMessage();
 		}
 		
