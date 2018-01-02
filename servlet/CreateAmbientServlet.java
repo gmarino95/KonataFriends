@@ -64,7 +64,7 @@ public class CreateAmbientServlet extends HttpServlet {
 			
 		} catch (NullException e) {
 
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		
 		if (errorString == null) {
@@ -73,7 +73,7 @@ public class CreateAmbientServlet extends HttpServlet {
 				DBUtils.insertAmbient(conn, ambient);
 				
 			} catch (SQLException e) {
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 				errorString = e.getMessage();
 			}
 		}	
@@ -85,9 +85,9 @@ public class CreateAmbientServlet extends HttpServlet {
 		try {
 			user.setAmbientID(DBUtils.maxIdAm(conn));
 			
-		} catch (SQLException e1) {
+		} catch (SQLException e) {
 			
-			e1.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		
 		if (errorString == null) {
@@ -107,7 +107,7 @@ public class CreateAmbientServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 				
-					e.printStackTrace();
+					System.out.println(e.getMessage());
 				}
 			
 				admin.setAmbientID(user.getAmbientID());
@@ -117,7 +117,7 @@ public class CreateAmbientServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 					
-					e.printStackTrace();
+					System.out.println(e.getMessage());
 				}
 
 			}
@@ -129,7 +129,8 @@ public class CreateAmbientServlet extends HttpServlet {
 					System.out.println(LoginServlet.name);
 					
 				} catch (SQLException e) {
-					e.printStackTrace();
+					
+					System.out.println(e.getMessage());
 					errorString = e.getMessage();
 				}
 			
@@ -141,7 +142,7 @@ public class CreateAmbientServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 				
-					e.printStackTrace();
+					System.out.println(e.getMessage());
 				}
 			
 				admin.setAmbientID(user.getAmbientID());
@@ -151,7 +152,7 @@ public class CreateAmbientServlet extends HttpServlet {
 					
 				} catch (SQLException e) {
 					
-					e.printStackTrace();
+					System.out.println(e.getMessage());
 				}
 			}
 		}

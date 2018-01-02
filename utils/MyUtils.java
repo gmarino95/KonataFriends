@@ -44,13 +44,15 @@ public class MyUtils {
 	public static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
 	
 	public static final String ATT_NAME_CONNECTION = "ATTRIBUTE_FOR_CONNECTION";
-	private static final String ATT_NAME_USER_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
+	//private static final String ATT_NAME_USER_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
 	public static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	
+	static JdbcConnectionConfig config = new JdbcConnectionConfig();
 	
 	//Store Connection in request attribute.
 	//Information stored only exist during requests
 	public static void storeConnection(ServletRequest request, Connection conn) {
-		request.setAttribute(ATT_NAME_CONNECTION, conn);
+			request.setAttribute(ATT_NAME_CONNECTION, conn);
 	}
 	
 	//Get connection object has been stored in attribute of request
@@ -77,7 +79,9 @@ public class MyUtils {
 	public static void storeUserCookie(HttpServletResponse response, UserAccount user) {
 		
 		System.out.println("Store user coockie");
-		Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, user.getUserName());	
+		
+		String username = user.getUserName();
+		Cookie cookieUserName = new Cookie(config.getAttNameUserName(), username);
 		
 		//1 day (converted to seconds)
 		cookieUserName.setMaxAge(24*60*60);
@@ -90,7 +94,7 @@ public class MyUtils {
 		
 		if(cookies != null) {
 			for(Cookie cookie : cookies) {
-				if(ATT_NAME_USER_NAME.equals(cookie.getName())) {
+				if(config.getAttNameUserName().equals(cookie.getName())) {
 					return cookie.getValue();
 				}
 			}
@@ -101,7 +105,7 @@ public class MyUtils {
 	//Delete cookie
 	public static void deleteUserCookie(HttpServletResponse response) {
 		
-		Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, null);
+		Cookie cookieUserName = new Cookie(config.getAttNameUserName(), null);
 		
 		//0 seconds (this cookie expire immediately)
 		cookieUserName.setMaxAge(0);
