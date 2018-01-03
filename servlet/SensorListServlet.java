@@ -27,6 +27,9 @@ public class SensorListServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * id del sensore
+	 */
 	public static String id = null;
 	
 	public static int idInt = 0;

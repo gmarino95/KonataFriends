@@ -27,6 +27,9 @@ import utils.*;
 @WebServlet(urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet {
 	
+	/**
+	 * nome utente
+	 */
 	public static String name = null;
 	public static String password = null;
 

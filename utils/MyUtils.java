@@ -41,6 +41,9 @@ import exceptions.ZeroException;
  */
 public class MyUtils {
 
+	/**
+	 * famiglia di font per la scrittura del pdf
+	 */
 	public static Font bigFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
 	public static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
 	public static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.BOLD);

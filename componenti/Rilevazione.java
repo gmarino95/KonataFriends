@@ -28,7 +28,9 @@ public class Rilevazione {
 	 * Descrizione del Messaggio della Rilevazione
 	 */
 	public String descrizione;
-	
+	/**
+	 * Data della rilevazione
+	 */
 	public Timestamp data;
 	
 	public int sensID;

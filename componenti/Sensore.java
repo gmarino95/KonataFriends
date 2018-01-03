@@ -40,7 +40,9 @@ public class Sensore implements Iterable<Rilevazione> {
 	 * Anno di Produzione
 	 */
 	public Date anno;
-	
+	/**
+	 * id ambiente del sensore
+	 */
 	public int ambientId;
 
 

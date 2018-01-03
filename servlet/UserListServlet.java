@@ -24,6 +24,9 @@ import utils.*;
 @WebServlet(urlPatterns = { "/userList" })
 public class UserListServlet extends HttpServlet {
 	
+	/**
+	 * username
+	 */
 	public static String userName = null;
 
 	public static String way = null;

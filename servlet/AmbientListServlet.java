@@ -17,10 +17,17 @@ import componenti.UserAccount;
 import exceptions.NullException;
 import exceptions.ZeroException;
 import utils.*;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 @WebServlet(urlPatterns = { "/ambientList" })
 public class AmbientListServlet extends HttpServlet {
 	
+	/**
+	 * id dell'ambiente
+	 */
 	public static String id = null;
 
 	public static String way = null;

@@ -8,6 +8,9 @@ public class UserAccount {
 
 	private String userName;
 	private String password;
+	/**
+	 * ambiente collegato all'utente
+	 */
 	public int ambientID;
 	private int privilegi;
 	

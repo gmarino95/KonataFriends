@@ -26,6 +26,9 @@ public class SummaryServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Arraylist delle silevazioni della sintesi 
+	 */
 	public static ArrayList<Rilevazione> sintesi = null;
 	
 	public static String way = null;
