@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import componenti.Ambiente;
 import componenti.Sensore;
 import componenti.UserAccount;
 import exceptions.NullException;

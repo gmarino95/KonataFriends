@@ -137,16 +137,7 @@ public class MyUtils {
 			stringControl(rilevazione, array[2], conn);
 			
 			//Trasformo la quarta stringa
-			Date parsed = null;
-			
-			try {
-				
-				parsed = formatter.parse(array[3]);
-				
-			} catch (ParseException e1) {
-
-				System.out.println("ParseException");
-			}
+			Date parsed = format(array[3]);
 			
 			Timestamp data = new java.sql.Timestamp(parsed.getTime());
 			
@@ -156,6 +147,22 @@ public class MyUtils {
 		}
 		
 		inputStream.close();
+	}
+	
+	public static java.util.Date format(String anno){
+		
+		java.util.Date parsed = null;
+		
+		try {
+			synchronized(formatter){
+				parsed = formatter.parse(anno);
+			}
+			
+		} catch (ParseException e) {
+
+			System.out.println("ParseException");
+		}
+		return parsed;
 	}
 	
 	public static void stringControl(Rilevazione rilevazione, String array, Connection conn) throws NullException, SQLException, ZeroException {

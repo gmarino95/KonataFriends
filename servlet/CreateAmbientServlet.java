@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import componenti.Ambiente;
 import componenti.UserAccount;
 import exceptions.NullException;
-import exceptions.ZeroException;
 import utils.DBUtils;
 import utils.MyUtils;
 

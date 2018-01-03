@@ -3,11 +3,8 @@ package servlet;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.sql.Date;
-import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -53,6 +50,7 @@ public class EditSensorServlet extends HttpServlet {
 		try {
 			
 			sensor = DBUtils.findSensore(conn, SensorListServlet.id);
+			
 		} catch(SQLException e) {
 			
 			System.out.println("SQLException");
@@ -101,17 +99,8 @@ public class EditSensorServlet extends HttpServlet {
 		String tipo = request.getParameter("selSens");
 		String annoStr = request.getParameter("anno");
 		
-		java.util.Date parsed = null;
-		
-		try {
-		
-			parsed = formatter.parse(annoStr);
-			
-		} catch (ParseException e1) {
-
-			System.out.println("ParseException");
-		}
-		
+		java.util.Date parsed = format(annoStr);
+				
 		java.sql.Date anno = new java.sql.Date(parsed.getTime());
 
 		try {
@@ -159,5 +148,21 @@ public class EditSensorServlet extends HttpServlet {
 		else {
 			response.sendRedirect(request.getContextPath() + "/sensorList");
 		}
+	}
+	
+	public java.util.Date format(String anno){
+		
+		java.util.Date parsed = null;
+		
+		try {
+			synchronized(formatter){
+				parsed = formatter.parse(anno);
+			}
+			
+		} catch (ParseException e) {
+
+			System.out.println("ParseException");
+		}
+		return parsed;
 	}
 }

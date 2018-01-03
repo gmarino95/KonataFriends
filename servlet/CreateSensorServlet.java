@@ -64,16 +64,7 @@ public class CreateSensorServlet extends HttpServlet {
 		String tipo = request.getParameter("selSens");
 		String annoStr = request.getParameter("anno");
 		
-		java.util.Date parsed = null;
-
-		try {
-			
-			parsed = formatter.parse(annoStr);
-			
-		} catch (ParseException e) {
-
-			System.out.println("ParseException");
-		}
+		java.util.Date parsed = format(annoStr);
 		
 		java.sql.Date anno = new java.sql.Date(parsed.getTime());
 
@@ -140,5 +131,21 @@ public class CreateSensorServlet extends HttpServlet {
 			System.out.println("NullException");
 		}
 		return amb;
+	}
+	
+	public java.util.Date format(String anno){
+		
+		java.util.Date parsed = null;
+		
+		try {
+			synchronized(formatter){
+				parsed = formatter.parse(anno);
+			}
+			
+		} catch (ParseException e) {
+
+			System.out.println("ParseException");
+		}
+		return parsed;
 	}
 }
