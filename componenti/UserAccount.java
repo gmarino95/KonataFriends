@@ -1,5 +1,9 @@
 package componenti;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 public class UserAccount {
 
 	private String userName;

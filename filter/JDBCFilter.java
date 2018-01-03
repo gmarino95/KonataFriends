@@ -17,7 +17,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import databaseConnector.ConnectionUtils;
 import utils.MyUtils;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 @WebFilter(filterName = "jdbcFilter", urlPatterns = { "/*" })
 public class JDBCFilter implements Filter{
 	

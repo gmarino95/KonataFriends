@@ -13,7 +13,11 @@ import componenti.Sensore;
 import componenti.UserAccount;
 import exceptions.NullException;
 import exceptions.ZeroException;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 public class DBUtils {
 	
 	public static int maxIdAm(Connection conn) throws SQLException {

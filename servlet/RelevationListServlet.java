@@ -16,7 +16,11 @@ import componenti.Rilevazione;
 import exceptions.NullException;
 import exceptions.ZeroException;
 import utils.*;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 @WebServlet(urlPatterns = { "/relevationList" })
 public class RelevationListServlet extends HttpServlet {
 

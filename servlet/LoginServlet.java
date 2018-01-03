@@ -19,7 +19,11 @@ import componenti.UserAccount;
 import exceptions.NullException;
 import exceptions.ZeroException;
 import utils.*;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 @WebServlet(urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet {
 	

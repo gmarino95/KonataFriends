@@ -3,7 +3,11 @@ package databaseConnector;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 public class MySQLConnUtils {
 
 	public static Connection getMySQLConnection() throws ClassNotFoundException, SQLException {

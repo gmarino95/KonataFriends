@@ -16,7 +16,11 @@ import componenti.UserAccount;
 import exceptions.NullException;
 import exceptions.ZeroException;
 import utils.*;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 @WebServlet(urlPatterns = { "/userList" })
 public class UserListServlet extends HttpServlet {
 	

@@ -34,7 +34,11 @@ import componenti.Sensore;
 import componenti.UserAccount;
 import exceptions.NullException;
 import exceptions.ZeroException;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 public class MyUtils {
 
 	public static Font bigFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
@@ -78,9 +82,12 @@ public class MyUtils {
 	//Store info in Cookie
 	public static void storeUserCookie(HttpServletResponse response, UserAccount user) {
 		
-		System.out.println("Store user coockie");
+		System.out.println("Store user cookie");
 		
 		String username = user.getUserName();
+		
+		username = username.replace("\r", "").replace("\n", "");
+		
 		Cookie cookieUserName = new Cookie(config.getAttNameUserName(), username);
 		
 		//1 day (converted to seconds)

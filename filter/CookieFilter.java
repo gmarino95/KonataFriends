@@ -16,7 +16,11 @@ import javax.servlet.http.HttpSession;
 
 import componenti.UserAccount;
 import utils.*;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 @WebFilter(filterName = "cookieFilter", urlPatterns = { "/*" })
 public class CookieFilter  implements Filter{
 

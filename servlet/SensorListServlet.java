@@ -17,7 +17,11 @@ import componenti.UserAccount;
 import exceptions.NullException;
 import exceptions.ZeroException;
 import utils.*;
-
+/**
+ * 
+ * @author gandalf
+ *
+ */
 @WebServlet(urlPatterns = { "/sensorList" })
 public class SensorListServlet extends HttpServlet {
 

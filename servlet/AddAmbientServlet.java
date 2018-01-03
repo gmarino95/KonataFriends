@@ -16,7 +16,12 @@ import utils.MyUtils;
 
 /**
  * Servlet implementation class CreateAmbientServlet
+ * 
+ * 
+ * @author gandalf
+ *
  */
+ 
 @WebServlet(urlPatterns = { "/addAmbient"})
 public class AddAmbientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
