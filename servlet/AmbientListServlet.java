@@ -21,17 +21,17 @@ import utils.*;
 @WebServlet(urlPatterns = { "/ambientList" })
 public class AmbientListServlet extends HttpServlet {
 	
-	public static String id;
+	public static String id = null;
 
-	public static String way;
+	public static String way = null;
 	
-	public static int idInt;
+	public static int idInt = 0;
 	
-	public static int status;
+	public static int status = 0;
 	
 	private static final long serialVersionUID = 1L;
 	
-	static ArrayList<Ambiente> ambienti;
+	static ArrayList<Ambiente> ambienti = null;
 
 	public AmbientListServlet() {
 		super();

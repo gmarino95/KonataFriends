@@ -20,13 +20,13 @@ import utils.*;
 @WebServlet(urlPatterns = { "/userList" })
 public class UserListServlet extends HttpServlet {
 	
-	public static String userName;
+	public static String userName = null;
 
-	public static String way;
+	public static String way = null;
 	
-	public static int idInt;
+	public static int idInt = 0;
 	
-	public static int status;
+	public static int status = 0;
 	
 	private static final long serialVersionUID = 1L;
 

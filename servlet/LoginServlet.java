@@ -23,8 +23,8 @@ import utils.*;
 @WebServlet(urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet {
 	
-	public static String name;
-	public static String password;
+	public static String name = null;
+	public static String password = null;
 
 	private static final long serialVersionUID = 1L;
 

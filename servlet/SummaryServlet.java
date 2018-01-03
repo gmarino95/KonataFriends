@@ -22,9 +22,9 @@ public class SummaryServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	public static ArrayList<Rilevazione> sintesi;
+	public static ArrayList<Rilevazione> sintesi = null;
 	
-	public static String way;
+	public static String way = null;
 
 	public SummaryServlet() {
 		super();

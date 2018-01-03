@@ -23,13 +23,13 @@ public class SensorListServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public static String id;
+	public static String id = null;
 	
-	public static int idInt;
+	public static int idInt = 0;
 	
-	public static String way;
+	public static String way = null;
 	
-	public static int status;
+	public static int status = 0;
 		
 	public SensorListServlet() {
 		super();
@@ -124,14 +124,37 @@ public class SensorListServlet extends HttpServlet {
 		} 
 		
 		else {
-			if(wayInt == 0)
-				response.sendRedirect(request.getContextPath() + "/relevationList");
+			String url = null;
 			
-			if(wayInt == 1)
-				response.sendRedirect(request.getContextPath() + "/editSensor");
+			if(wayInt == 0) {
+				url = request.getContextPath() + "/relevationList";
+				
+				if(url == null) {
+					response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+				} else {
+					response.sendRedirect(url);
+				}
+			}
 			
-			if(wayInt == 2)
-				response.sendRedirect(request.getContextPath() + "/deleteSensor");
+			if(wayInt == 1) {
+				url = request.getContextPath() + "/editSensor";
+			
+				if(url == null) {
+					response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+				} else {
+					response.sendRedirect(url);
+				}
+			}
+			
+			if(wayInt == 2) {
+				url = request.getContextPath() + "/deleteSensor";
+			
+				if(url == null) {
+					response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+				} else {
+					response.sendRedirect(url);
+				}
+			}
 		}		
 	}	
 }
