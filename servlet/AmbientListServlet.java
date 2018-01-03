@@ -25,19 +25,29 @@ import utils.*;
 @WebServlet(urlPatterns = { "/ambientList" })
 public class AmbientListServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = 1L;
 	/**
 	 * id dell'ambiente
 	 */
 	public static String id = null;
-
+	/**
+	 * indicatore per la scelta della vista collegata
+	 * al pulsante premuto
+	 */
 	public static String way = null;
-	
+	/**
+	 * id intero dell'ambiente
+	 */
 	public static int idInt = 0;
-	
+	/**
+	 * indicatore per scegliere la vista 
+	 * dipendentemente dall'utente loggato
+	 */
 	public static int status = 0;
-	
-	private static final long serialVersionUID = 1L;
-	
+	/**
+	 * arraylist degli ambienti da visualizzare 
+	 * nella pagina 
+	 */
 	static ArrayList<Ambiente> ambienti = null;
 
 	public AmbientListServlet() {

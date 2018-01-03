@@ -24,19 +24,22 @@ import utils.*;
 @WebServlet(urlPatterns = { "/userList" })
 public class UserListServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = 1L;
 	/**
 	 * username
 	 */
 	public static String userName = null;
-
+	/**
+	 * indicatore per la scelta della vista collegata
+	 * al pulsante premuto
+	 */
 	public static String way = null;
-	
-	public static int idInt = 0;
-	
+	/**
+	 * indicatore per scegliere la vista 
+	 * dipendentemente dall'utente loggato
+	 */
 	public static int status = 0;
 	
-	private static final long serialVersionUID = 1L;
-
 	public UserListServlet() {
 		super();
 	}

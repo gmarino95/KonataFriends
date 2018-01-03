@@ -31,11 +31,19 @@ public class SensorListServlet extends HttpServlet {
 	 * id del sensore
 	 */
 	public static String id = null;
-	
+	/**
+	 * id del sensore intero
+	 */
 	public static int idInt = 0;
-	
+	/**
+	 * indicatore per la scelta della vista collegata
+	 * al pulsante premuto
+	 */
 	public static String way = null;
-	
+	/**
+	 * indicatore per scegliere la vista 
+	 * dipendentemente dall'utente loggato
+	 */
 	public static int status = 0;
 		
 	public SensorListServlet() {

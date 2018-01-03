@@ -42,18 +42,34 @@ import exceptions.ZeroException;
 public class MyUtils {
 
 	/**
-	 * famiglia di font per la scrittura del pdf
+	 * font per la scrittura del pdf
 	 */
 	public static Font bigFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+	/**
+	 * font per la scrittura del pdf
+	 */
 	public static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
+	/**
+	 * font per la scrittura del pdf
+	 */
 	public static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.BOLD);
+	/**
+	 * font per la scrittura del pdf
+	 */
 	public static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
 	
+	/**
+	 *costante nome della connessione
+	 */
 	public static final String ATT_NAME_CONNECTION = "ATTRIBUTE_FOR_CONNECTION";
-	//private static final String ATT_NAME_USER_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
+	/**
+	 *costante nome dell'utente
+	 */
+	private static final String ATT_NAME_USER_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
+	/**
+	 * formatter perla formattazione della data
+	 */
 	public static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	
-	static JdbcConnectionConfig config = new JdbcConnectionConfig();
 	
 	//Store Connection in request attribute.
 	//Information stored only exist during requests
@@ -91,7 +107,7 @@ public class MyUtils {
 		
 		username = username.replace("\r", "").replace("\n", "");
 		
-		Cookie cookieUserName = new Cookie(config.getAttNameUserName(), username);
+		Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, username);
 		
 		//1 day (converted to seconds)
 		cookieUserName.setMaxAge(24*60*60);
@@ -104,7 +120,7 @@ public class MyUtils {
 		
 		if(cookies != null) {
 			for(Cookie cookie : cookies) {
-				if(config.getAttNameUserName().equals(cookie.getName())) {
+				if(ATT_NAME_USER_NAME.equals(cookie.getName())) {
 					return cookie.getValue();
 				}
 			}
@@ -115,7 +131,7 @@ public class MyUtils {
 	//Delete cookie
 	public static void deleteUserCookie(HttpServletResponse response) {
 		
-		Cookie cookieUserName = new Cookie(config.getAttNameUserName(), null);
+		Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, null);
 		
 		//0 seconds (this cookie expire immediately)
 		cookieUserName.setMaxAge(0);

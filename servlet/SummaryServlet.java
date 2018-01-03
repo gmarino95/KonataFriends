@@ -30,7 +30,10 @@ public class SummaryServlet extends HttpServlet {
 	 * Arraylist delle silevazioni della sintesi 
 	 */
 	public static ArrayList<Rilevazione> sintesi = null;
-	
+	/**
+	 * indicatore per la scelta della vista collegata
+	 * al pulsante premuto
+	 */
 	public static String way = null;
 
 	public SummaryServlet() {

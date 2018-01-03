@@ -31,6 +31,9 @@ public class LoginServlet extends HttpServlet {
 	 * nome utente
 	 */
 	public static String name = null;
+	/**
+	 * password utente
+	 */
 	public static String password = null;
 
 	private static final long serialVersionUID = 1L;
