@@ -84,7 +84,8 @@ public class LoginServlet extends HttpServlet {
 			
 			try {
 				//Find User in the DB
-				if(name != null && chiave != null && name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+"))
+				
+				if(name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+") && name != null && chiave != null)
 					user = DBUtils.findUser(conn, name, chiave);
 				else
 					System.out.println("Not Matching");
@@ -129,13 +130,15 @@ public class LoginServlet extends HttpServlet {
 			MyUtils.storeLoginedUser(session, user);
 			
 			//if user checked "Remenber Me"
-			if(remember) {
+			rememberMe(user, remember, response);
+			
+			/*if(remember) {
 				MyUtils.storeUserCookie(response, user);
 			} 
 			//Else delete cookie
 			else {
 				MyUtils.deleteUserCookie(response);
-			}
+			}*/
 			
 			//Redirect to Ambient page
 			response.sendRedirect(request.getContextPath() + "/ambientList");
@@ -159,6 +162,17 @@ public class LoginServlet extends HttpServlet {
 		} catch (ZeroException e) {
 			
 			System.out.println("ZeroException");
+		}
+	}
+	
+	public void rememberMe(UserAccount user, boolean remember, HttpServletResponse response) {
+		
+		if(remember) {
+			MyUtils.storeUserCookie(response, user);
+		} 
+		//Else delete cookie
+		else {
+			MyUtils.deleteUserCookie(response);
 		}
 	}
 }
