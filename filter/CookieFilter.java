@@ -63,8 +63,10 @@ public class CookieFilter  implements Filter{
 			String userName = MyUtils.getUserNameInCookie(req);
 			
 			try {
-				UserAccount user = DBUtils.findUser(conn, userName);
-				MyUtils.storeLoginedUser(session, user);
+				if(userName != null && userName.matches("[0-9a-zA-Z_]")){
+					UserAccount user = DBUtils.findUser(conn, userName);
+					MyUtils.storeLoginedUser(session, user);
+				}
 			} catch(SQLException e) {
 				
 				System.out.println("SQLException");

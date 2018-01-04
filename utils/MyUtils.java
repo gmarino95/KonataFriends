@@ -90,7 +90,7 @@ public class MyUtils {
 		if(loginedUser != null)
 			session.setAttribute("loginedUser", loginedUser);
 		else
-			System.out.println("Errore: utente loggato errato");
+			System.out.println();
 	}
 	
 	// Get the user information stored in the session.
