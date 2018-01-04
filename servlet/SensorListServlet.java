@@ -26,6 +26,15 @@ import utils.*;
 public class SensorListServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
+	
+	private static final String VALID_REDIRECT_REL_LIST = "/relevationList";
+	
+	private static final String VALID_REDIRECT_EDIT_SENS = "/editSensor";
+	
+	private static final String VALID_REDIRECT_DEL_SENS = "/deleteSensor";
+	
+	
+	
 
 	/**
 	 * id del sensore
@@ -139,35 +148,15 @@ public class SensorListServlet extends HttpServlet {
 		} 
 		
 		else {
-			String url = null;
 			
-			if(wayInt == 0) {
-				url = request.getContextPath() + "/relevationList";
+			if(wayInt == 0)
+				response.sendRedirect(request.getContextPath() + VALID_REDIRECT_REL_LIST);
 			
-				if(url == null) {
-					response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-				} else {
-					response.sendRedirect(url);
-				}
-			}
-			if(wayInt == 1) {
-				url = request.getContextPath() + "/editSensor";
-				
-				if(url == null) {
-					response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-				} else {
-					response.sendRedirect(url);
-				}
-			}
-			if(wayInt == 2) {
-				url = request.getContextPath() + "/deleteSensor";
-				
-				if(url == null) {
-					response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-				} else {
-					response.sendRedirect(url);
-				}
-			}
+			if(wayInt == 1)
+				response.sendRedirect(request.getContextPath() + VALID_REDIRECT_EDIT_SENS);
+			
+			if(wayInt == 2)
+				response.sendRedirect(request.getContextPath() + VALID_REDIRECT_DEL_SENS);
 		}		
 	}	
 }
