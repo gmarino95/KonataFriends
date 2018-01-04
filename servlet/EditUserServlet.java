@@ -43,7 +43,7 @@ public class EditUserServlet extends HttpServlet {
 		
 		String errorString = null;
 		
-		oldUser = UserListServlet.userName;
+		oldUser = UserListServlet.name;
 		
 		System.out.println(oldUser);
 		

@@ -28,7 +28,7 @@ public class UserListServlet extends HttpServlet {
 	/**
 	 * username
 	 */
-	public static String userName = null;
+	public static String name = null;
 	/**
 	 * indicatore per la scelta della vista collegata
 	 * al pulsante premuto
@@ -87,7 +87,7 @@ public class UserListServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		userName = (request.getParameter("username"));
+		name = (request.getParameter("username"));
 		way = (request.getParameter("way"));
 		
 		int wayInt = Integer.parseInt(way);
@@ -99,7 +99,7 @@ public class UserListServlet extends HttpServlet {
 		if(hasError) {
 			
 			user = new UserAccount();
-			user.setUserName(userName);
+			user.setUserName(name);
 			
 			request.setAttribute("errorString", errorString);
 			request.setAttribute("user", user);

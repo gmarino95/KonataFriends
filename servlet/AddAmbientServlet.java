@@ -42,7 +42,7 @@ public class AddAmbientServlet extends HttpServlet {
 		
 		request.setAttribute("ambientList", AmbientListServlet.ambienti);
 		
-		username = UserListServlet.userName;
+		username = UserListServlet.name;
 		
 		RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher("/WEB-INF/views/addAmbient.jsp");
 		

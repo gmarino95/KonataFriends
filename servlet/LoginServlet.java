@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * password utente
 	 */
-	public static String password = null;
+	public static String pass = null;
 
 	private static final long serialVersionUID = 1L;
 
@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 		Connection conn = MyUtils.getStoredConnection(request);
 		
 		name = request.getParameter("userName");
-		password = request.getParameter("password");
+		pass = request.getParameter("password");
 		String rememberMeStr = request.getParameter("rememberMe");
 		boolean remember = "Y".equals(rememberMeStr);
 		
@@ -75,7 +75,7 @@ public class LoginServlet extends HttpServlet {
 		
 		obtainRelev(rilevazioniF, conn);
 		
-		if(name == null || password == null || name.length() == 0 || password.length() == 0) {
+		if(name == null || pass == null || name.length() == 0 || pass.length() == 0) {
 			
 			hasError = true;
 			errorString = "Richiesti username e password";
@@ -84,7 +84,7 @@ public class LoginServlet extends HttpServlet {
 			
 			try {
 				//Find User in the DB
-				user = DBUtils.findUser(conn, name, password);
+				user = DBUtils.findUser(conn, name, pass);
 				
 				if(user == null) {
 					
@@ -105,7 +105,7 @@ public class LoginServlet extends HttpServlet {
 			
 			user = new UserAccount();
 			user.setUserName(name);
-			user.setPassword(password);
+			user.setPassword(pass);
 			
 			
 			//Store information in request attribute, before forward

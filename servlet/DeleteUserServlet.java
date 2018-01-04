@@ -48,7 +48,7 @@ public class DeleteUserServlet extends HttpServlet {
 		
 		try {
 			
-			DBUtils.deleteUser(conn, UserListServlet.userName);
+			DBUtils.deleteUser(conn, UserListServlet.name);
 			
 		} catch(SQLException e) {
 			
