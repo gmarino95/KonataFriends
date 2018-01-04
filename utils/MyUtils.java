@@ -65,7 +65,7 @@ public class MyUtils {
 	/**
 	 *costante nome dell'utente
 	 */
-	private static final String ATT_NAME_USER_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
+	private static final String ATT_NAME_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
 	/**
 	 * formatter perla formattazione della data
 	 */
@@ -89,6 +89,8 @@ public class MyUtils {
 		// On the JSP can access via ${loginedUser}
 		if(loginedUser != null)
 			session.setAttribute("loginedUser", loginedUser);
+		else
+			System.out.println("Errore: utente loggato errato");
 	}
 	
 	// Get the user information stored in the session.
@@ -107,7 +109,7 @@ public class MyUtils {
 		
 		username = username.replace("\r", "").replace("\n", "");
 		
-		Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, username);
+		Cookie cookieUserName = new Cookie(ATT_NAME_NAME, username);
 		
 		//1 day (converted to seconds)
 		cookieUserName.setMaxAge(24*60*60);
@@ -120,7 +122,7 @@ public class MyUtils {
 		
 		if(cookies != null) {
 			for(Cookie cookie : cookies) {
-				if(ATT_NAME_USER_NAME.equals(cookie.getName())) {
+				if(ATT_NAME_NAME.equals(cookie.getName())) {
 					return cookie.getValue();
 				}
 			}
@@ -131,7 +133,7 @@ public class MyUtils {
 	//Delete cookie
 	public static void deleteUserCookie(HttpServletResponse response) {
 		
-		Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, null);
+		Cookie cookieUserName = new Cookie(ATT_NAME_NAME, null);
 		
 		//0 seconds (this cookie expire immediately)
 		cookieUserName.setMaxAge(0);
