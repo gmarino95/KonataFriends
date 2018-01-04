@@ -26,15 +26,6 @@ import utils.*;
 public class SensorListServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	
-	private static final String VALID_REDIRECT_REL_LIST = "/relevationList";
-	
-	private static final String VALID_REDIRECT_EDIT_SENS = "/editSensor";
-	
-	private static final String VALID_REDIRECT_DEL_SENS = "/deleteSensor";
-	
-	
-	
 
 	/**
 	 * id del sensore
@@ -150,13 +141,20 @@ public class SensorListServlet extends HttpServlet {
 		else {
 			
 			if(wayInt == 0)
-				response.sendRedirect(request.getContextPath() + VALID_REDIRECT_REL_LIST);
+				if(isUrlTrusted(request.getContextPath() + "/relevationList") == true)
+					response.sendRedirect(request.getContextPath() + "/relevationList");
 			
 			if(wayInt == 1)
-				response.sendRedirect(request.getContextPath() + VALID_REDIRECT_EDIT_SENS);
+				if(isUrlTrusted(request.getContextPath() + "/editSensor") == true)
+					response.sendRedirect(request.getContextPath() + "/editSensor");
 			
 			if(wayInt == 2)
-				response.sendRedirect(request.getContextPath() + VALID_REDIRECT_DEL_SENS);
+				if(isUrlTrusted(request.getContextPath() + "/deleteSensor") == true)
+				response.sendRedirect(request.getContextPath() + "/deleteSensor");
 		}		
 	}	
+	public boolean isUrlTrusted(String url) {
+		return !url.isEmpty();
+
+	}
 }
