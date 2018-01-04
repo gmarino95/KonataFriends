@@ -140,21 +140,14 @@ public class SensorListServlet extends HttpServlet {
 		
 		else {
 			
-			if(wayInt == 0)
-				if(isUrlTrusted(request.getContextPath() + "/relevationList") == true)
-					response.sendRedirect(request.getContextPath() + "/relevationList");
+			if(wayInt == 0) 
+				response.sendRedirect(request.getContextPath() + "/relevationList");
 			
-			if(wayInt == 1)
-				if(isUrlTrusted(request.getContextPath() + "/editSensor") == true)
-					response.sendRedirect(request.getContextPath() + "/editSensor");
+			if(wayInt == 1) 
+				response.sendRedirect(request.getContextPath() + "/editSensor");
 			
-			if(wayInt == 2)
-				if(isUrlTrusted(request.getContextPath() + "/deleteSensor") == true)
+			if(wayInt == 2) 
 				response.sendRedirect(request.getContextPath() + "/deleteSensor");
 		}		
 	}	
-	public boolean isUrlTrusted(String url) {
-		return !url.isEmpty();
-
-	}
 }
