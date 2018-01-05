@@ -101,10 +101,9 @@ public class LoginServlet extends HttpServlet {
 		
 		//If error, forward to /WEB-INF/views/login.jsp
 		if(hasError) {
-			
-			user = new UserAccount();
-			
+
 			if(name != null && chiave != null && name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+")) {
+				user = new UserAccount();
 				user.setUserName(name);
 				user.setPassword(chiave);
 			}
