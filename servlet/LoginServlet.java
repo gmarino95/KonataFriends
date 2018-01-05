@@ -83,9 +83,8 @@ public class LoginServlet extends HttpServlet {
 			
 			try {
 				//Find User in the DB
-				if(name != null && chiave != null && name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+")) {
-					user = DBUtils.findUser(conn, name, chiave);
-				}
+				user = DBUtils.findUser(conn, name, chiave);
+	
 				if(user == null) {
 					
 					hasError = true;
@@ -125,9 +124,8 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			
 			//MyUtils.storeLoginedUser(session, name, chiave);
-			if(name != null && chiave != null && name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+")) {
-				MyUtils.storeLoginedUser(session, user);
-			}
+			MyUtils.storeLoginedUser(session, user);
+			
 			//if user checked "Remenber Me"
 			rememberMe(user, remember, response);
 			
