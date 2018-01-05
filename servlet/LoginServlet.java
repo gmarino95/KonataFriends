@@ -126,7 +126,7 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			
-			if(name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+") && name != null && chiave != null)
+			if(user.getUserName().matches("[0-9a-zA-Z_]+") && user.getPassword().matches("[0-9a-zA-Z_]+") && user.getUserName() != null && user.getPassword() != null)
 				MyUtils.storeLoginedUser(session, user);
 			else
 				System.out.println("Not Matching");
