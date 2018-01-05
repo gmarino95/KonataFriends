@@ -84,7 +84,7 @@ public class LoginServlet extends HttpServlet {
 			try {
 				//Find User in the DB
 				
-				if(name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+") && name != null && chiave != null)
+				if(name.matches("[0-9a-zA-Z_]+") && name != null)
 					user = DBUtils.findUser(conn, name, chiave);
 				else
 					System.out.println("Not Matching");
@@ -126,10 +126,8 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			
-			if(user.getUserName().matches("[0-9a-zA-Z_]+") && user.getPassword().matches("[0-9a-zA-Z_]+") && user.getUserName() != null && user.getPassword() != null)
+			if(name.matches("[0-9a-zA-Z_]+") && name != null)
 				MyUtils.storeLoginedUser(session, user);
-			else
-				System.out.println("Not Matching");
 			
 			//if user checked "Remenber Me"
 			rememberMe(user, remember, response);
