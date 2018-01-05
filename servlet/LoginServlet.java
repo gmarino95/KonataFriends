@@ -27,6 +27,7 @@ import utils.*;
 @WebServlet(urlPatterns = { "/login" })
 public class LoginServlet extends HttpServlet {
 	
+	private static final long serialVersionUID = 1L;
 	/**
 	 * nome utente
 	 */
@@ -35,8 +36,6 @@ public class LoginServlet extends HttpServlet {
 	 * password utente
 	 */
 	public static String chiave = null;
-
-	private static final long serialVersionUID = 1L;
 
 	public LoginServlet() {
 		super();
@@ -127,18 +126,13 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			
-			MyUtils.storeLoginedUser(session, user);
+			if(name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+") && name != null && chiave != null)
+				MyUtils.storeLoginedUser(session, user);
+			else
+				System.out.println("Not Matching");
 			
 			//if user checked "Remenber Me"
 			rememberMe(user, remember, response);
-			
-			/*if(remember) {
-				MyUtils.storeUserCookie(response, user);
-			} 
-			//Else delete cookie
-			else {
-				MyUtils.deleteUserCookie(response);
-			}*/
 			
 			//Redirect to Ambient page
 			response.sendRedirect(request.getContextPath() + "/ambientList");
