@@ -123,9 +123,11 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			
 			if(name.matches("[0-9a-zA-Z_]+") && name != null)
-				MyUtils.storeLoginedUser(session, user);
+				MyUtils.storeLoginedUser(session, name, chiave);
 			else
 				System.out.println("Not Matching");
+			
+			//MyUtils.storeLoginedUser(session, user);
 			
 			//if user checked "Remenber Me"
 			rememberMe(user, remember, response);
