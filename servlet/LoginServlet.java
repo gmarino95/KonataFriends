@@ -122,7 +122,7 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			
-			if(user.getUserName().matches("[0-9a-zA-Z_]+") && user.getUserName() != null)
+			if(name.matches("[0-9a-zA-Z_]+") && name != null)
 				MyUtils.storeLoginedUser(session, user);
 			else
 				System.out.println("Not Matching");
