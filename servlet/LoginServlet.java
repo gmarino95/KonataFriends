@@ -124,9 +124,9 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			
 			//MyUtils.storeLoginedUser(session, name, chiave);
-			
-			MyUtils.storeLoginedUser(session, user);
-			
+			if(name != null && chiave != null && name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+")) {
+				MyUtils.storeLoginedUser(session, user);
+			}
 			//if user checked "Remenber Me"
 			rememberMe(user, remember, response);
 			
