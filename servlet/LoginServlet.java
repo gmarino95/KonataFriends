@@ -103,9 +103,11 @@ public class LoginServlet extends HttpServlet {
 		if(hasError) {
 			
 			user = new UserAccount();
-			user.setUserName(name);
-			user.setPassword(chiave);
 			
+			if(name != null && chiave != null && name.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+")) {
+				user.setUserName(name);
+				user.setPassword(chiave);
+			}
 			
 			//Store information in request attribute, before forward
 			request.setAttribute("errorString", errorString);
@@ -122,12 +124,9 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			
-			if(name.matches("[0-9a-zA-Z_]+") && name != null)
-				MyUtils.storeLoginedUser(session, name, chiave);
-			else
-				System.out.println("Not Matching");
+			//MyUtils.storeLoginedUser(session, name, chiave);
 			
-			//MyUtils.storeLoginedUser(session, user);
+			MyUtils.storeLoginedUser(session, user);
 			
 			//if user checked "Remenber Me"
 			rememberMe(user, remember, response);
