@@ -70,10 +70,10 @@ public class EditSensorServlet extends HttpServlet {
 		 * the sensor does not exist to edit
 		 * redirect to productList
 		 */
-		if(errorString != null && sensor == null) {
+		/*if(errorString != null && sensor == null) {
 			response.sendRedirect(request.getContextPath() + "/sensorList");
 			return;
-		}
+		}*/
 		
 		//store errorString in request attribute, before forward to views
 		request.setAttribute("errorString", errorString);
@@ -145,9 +145,9 @@ public class EditSensorServlet extends HttpServlet {
 		 * if everything nice
 		 * redirect to the product listing page
 		 */
-		else {
+		/*else {
 			response.sendRedirect(request.getContextPath() + "/sensorList");
-		}
+		}*/
 	}
 	
 	public java.util.Date format(String anno){

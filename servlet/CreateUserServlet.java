@@ -92,8 +92,8 @@ public class CreateUserServlet extends HttpServlet {
 		
 		// If everything nice.
 		// Redirect to the ambient listing page.
-		else {
+		/*else {
 			response.sendRedirect(request.getContextPath() + "/userList");
-		}
+		}*/
 	}
 }

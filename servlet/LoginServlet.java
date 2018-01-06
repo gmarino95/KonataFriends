@@ -130,7 +130,7 @@ public class LoginServlet extends HttpServlet {
 			rememberMe(user, remember, response);
 			
 			//Redirect to Ambient page
-			response.sendRedirect(request.getContextPath() + "/ambientList");
+			//response.sendRedirect(request.getContextPath() + "/ambientList");
 		}
 	}
 	

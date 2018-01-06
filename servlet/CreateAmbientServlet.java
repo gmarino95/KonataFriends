@@ -114,9 +114,9 @@ public class CreateAmbientServlet extends HttpServlet {
 		
 		// If everything nice.
 		// Redirect to the ambient listing page.
-		else {
+		/*else {
 			response.sendRedirect(request.getContextPath() + "/ambientList");
-		}	
+		}*/	
 	}
 	
 	public void addUserNotAdmin(UserAccount user, Connection conn) {
