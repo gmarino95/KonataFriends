@@ -121,7 +121,6 @@ public class SensorListServlet extends HttpServlet {
 		boolean hasError = false;
 		
 		if(hasError) {
-			
 			sens = new Sensore();
 			try {
 				sens.setId(idInt);
@@ -139,15 +138,19 @@ public class SensorListServlet extends HttpServlet {
 		} 
 		
 		else {
+			if(way != null && id != null && way.matches("[0-9a-zA-Z_]+") && id.matches("[0-9a-zA-Z_]+")) {
+				if(wayInt == 0) 
+					response.sendRedirect(request.getContextPath() + "/relevationList");
 			
-			if(wayInt == 0) 
-				response.sendRedirect(request.getContextPath() + "/relevationList");
+				if(wayInt == 1) 
+					response.sendRedirect(request.getContextPath() + "/editSensor");
 			
-			if(wayInt == 1) 
-				response.sendRedirect(request.getContextPath() + "/editSensor");
-			
-			if(wayInt == 2) 
-				response.sendRedirect(request.getContextPath() + "/deleteSensor");
+				if(wayInt == 2) 
+					response.sendRedirect(request.getContextPath() + "/deleteSensor");
+			}
+			else {
+				System.out.println("Not matching");
+			}
 		}		
 	}	
 }
