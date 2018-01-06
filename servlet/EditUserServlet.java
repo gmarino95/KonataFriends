@@ -60,10 +60,10 @@ public class EditUserServlet extends HttpServlet {
 		
 		/*if no error, the ambient does not exist to edit.
 		Redirect to ambientList page*/
-		/*if(errorString != null && user == null) {
+		if(errorString != null && user == null) {
 			response.sendRedirect(request.getServletPath() + "/userList");
 			return;
-		}*/
+		}
 		
 		//store errorString in request attribute, before forward to views
 		request.setAttribute("errorString", errorString);

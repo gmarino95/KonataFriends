@@ -136,8 +136,8 @@ public class EditAmbientServlet extends HttpServlet {
 		}
 		
 		//If everything nice, redirect to the ambient listing page
-		/*else {
+		else {
 			response.sendRedirect(request.getContextPath() + "/ambientList");
-		}*/
+		}
 	}
 }

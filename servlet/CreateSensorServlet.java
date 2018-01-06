@@ -107,7 +107,7 @@ public class CreateSensorServlet extends HttpServlet {
 		// If everything nice.
 		// Redirect to the sensor listing page.
 		else {
-		response.sendRedirect(request.getContextPath() + "/sensorList");
+			response.sendRedirect(request.getContextPath() + "/sensorList");
 		}	
 	}
 	

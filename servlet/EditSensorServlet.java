@@ -145,9 +145,9 @@ public class EditSensorServlet extends HttpServlet {
 		 * if everything nice
 		 * redirect to the product listing page
 		 */
-		/*else {
+		else {
 			response.sendRedirect(request.getContextPath() + "/sensorList");
-		}*/
+		}
 	}
 	
 	public java.util.Date format(String anno){
