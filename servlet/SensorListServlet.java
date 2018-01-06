@@ -147,34 +147,16 @@ public class SensorListServlet extends HttpServlet {
 				String path = request.getContextPath() + "/relevationList";
 				sendRedirect(utilities, path);
 				//response.sendRedirect(path);
-				/*try {
-					utilities.sendRedirect(path);
-				} catch (AccessControlException e) {
-					
-					System.out.println("Errore");
-				}*/
 			}
 			if(wayInt == 1) {
 				String path = request.getContextPath() + "/editSensor";
 				sendRedirect(utilities, path);
 				//response.sendRedirect(path);
-				/*try {
-					utilities.sendRedirect(path);
-				} catch (AccessControlException e) {
-					
-					System.out.println("Errore");
-				}	*/	
 			}
 			if(wayInt == 2) {
 				String path = request.getContextPath() + "/deleteSensor";
 				sendRedirect(utilities, path);
 				//response.sendRedirect(path);
-				/*try {
-					utilities.sendRedirect(path);
-				} catch (AccessControlException e) {
-					
-					System.out.println("Errore");
-				}*/
 			}
 		}
 	}

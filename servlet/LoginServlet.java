@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.owasp.esapi.errors.AccessControlException;
+import org.owasp.esapi.reference.DefaultHTTPUtilities;
+
 import componenti.UserAccount;
 import exceptions.NullException;
 import exceptions.ZeroException;
@@ -68,9 +71,9 @@ public class LoginServlet extends HttpServlet {
 		
 		ServletContext cs = getServletContext();
 		
-		String path = cs.getRealPath("/") + "/WEB-INF/Rilevazioni.txt";
+		String pathTxt = cs.getRealPath("/") + "/WEB-INF/Rilevazioni.txt";
 		
-		File rilevazioniF = new File(path);
+		File rilevazioniF = new File(pathTxt);
 		
 		obtainRelev(rilevazioniF, conn);
 		
@@ -130,7 +133,19 @@ public class LoginServlet extends HttpServlet {
 			rememberMe(user, remember, response);
 			
 			//Redirect to Ambient page
-			response.sendRedirect(request.getContextPath() + "/ambientList");
+			DefaultHTTPUtilities utilities = new DefaultHTTPUtilities();
+			String path = request.getContextPath() + "/ambientList";
+			sendRedirect(utilities, path);
+			//response.sendRedirect(path);
+		}
+	}
+	
+	public void sendRedirect(DefaultHTTPUtilities utilities, String path) throws IOException {
+		try {
+			utilities.sendRedirect(path);
+		} catch (AccessControlException e) {
+			
+			System.out.println("Errore");
 		}
 	}
 	
