@@ -123,8 +123,8 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			
-			//MyUtils.storeLoginedUser(session, name, chiave);
-			MyUtils.storeLoginedUser(session, user);
+			MyUtils.storeLoginedUser(session, name, chiave);
+			//MyUtils.storeLoginedUser(session, user);
 			
 			//if user checked "Remenber Me"
 			rememberMe(user, remember, response);
