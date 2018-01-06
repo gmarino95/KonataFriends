@@ -64,7 +64,10 @@ public class EditUserServlet extends HttpServlet {
 		/*if no error, the ambient does not exist to edit.
 		Redirect to ambientList page*/
 		if(errorString != null && user == null) {
-			response.sendRedirect(request.getServletPath() + "/userList");
+			DefaultHTTPUtilities utilities = new DefaultHTTPUtilities();
+			String path = request.getContextPath() + "/userList";
+			sendRedirect(utilities, path);
+			//response.sendRedirect(path);
 			return;
 		}
 		
