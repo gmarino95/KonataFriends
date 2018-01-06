@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html"
+    pageEncoding="UTF-8"%>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html> 
 
 <html>
 	<head>
@@ -20,7 +24,6 @@
 	</head>
 	
 	<body>
-		
 		<jsp:include page = "_header.jsp"></jsp:include>
 		
 		<div>
@@ -45,9 +48,9 @@
 						<select id = "selSens" name = "selSens">
 							<option value = "1">Movimento</option>
 							<option value = "2">Pressione</option>
-							<option value = "3">Umidit‡</option>
+							<option value = "3">Umidit√†</option>
 							<option value = "4">Temperatura</option>
-							<option value = "5">Luminosit‡</option>
+							<option value = "5">Luminosit√†</option>
 						</select>
 					</td>
 				</tr>
