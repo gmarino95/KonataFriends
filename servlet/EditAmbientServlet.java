@@ -67,10 +67,10 @@ public class EditAmbientServlet extends HttpServlet {
 		
 		/*if no error, the ambient does not exist to edit.
 		Redirect to ambientList page*/
-		/*if(errorString != null && ambient == null) {
+		if(errorString != null && ambient == null) {
 			response.sendRedirect(request.getServletPath() + "/ambientList");
 			return;
-		}*/
+		}
 		
 		//store errorString in request attribute, before forward to views
 		request.setAttribute("errorString", errorString);

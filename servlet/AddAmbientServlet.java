@@ -64,9 +64,7 @@ public class AddAmbientServlet extends HttpServlet {
 		String errorString = null;
 
 		String ambient = (String) request.getParameter("selAmb");
-		//username = (String) request.getParameter("username");
-
-		System.out.println(username);
+		username = (String) request.getParameter("username");
 		
 		int amb = Integer.parseInt(ambient);
 		
@@ -110,9 +108,9 @@ public class AddAmbientServlet extends HttpServlet {
 		
 		// If everything nice.
 		// Redirect to the ambient listing page.
-		/*else {
+		else {
 			response.sendRedirect(request.getContextPath() + "/userList");
-		}*/	
+		}
 	}
 }
 

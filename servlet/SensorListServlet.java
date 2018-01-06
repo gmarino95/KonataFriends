@@ -137,15 +137,26 @@ public class SensorListServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		} 
 		
-		/*else {
-			if(wayInt == 0) 
-				response.sendRedirect(request.getContextPath() + "/relevationList");
-			
-			if(wayInt == 1) 
-				response.sendRedirect(request.getContextPath() + "/editSensor");
-			
-			if(wayInt == 2) 
-				response.sendRedirect(request.getContextPath() + "/deleteSensor");
-		}*/
+		else {
+			if(wayInt == 0) {
+				String path = request.getContextPath() + "/relevationList";
+				if(path != null) {
+					response.sendRedirect(path);
+				}
+			}
+			if(wayInt == 1) {
+				String path = request.getContextPath() + "/editSensor";
+				if(path != null) {
+					response.sendRedirect(path);
+				}
+						
+			}
+			if(wayInt == 2) {
+				String path = request.getContextPath() + "/deleteSensor";
+				if(path != null) {
+					response.sendRedirect(path);
+				}
+			}
+		}
 	}	
 }

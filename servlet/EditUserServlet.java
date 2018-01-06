@@ -125,9 +125,9 @@ public class EditUserServlet extends HttpServlet {
 		}
 		
 		//If everything nice, redirect to the ambient listing page
-		/*else {
+		else {
 			response.sendRedirect(request.getContextPath() + "/userList");
-		}*/
+		}
 	}
 }
 
