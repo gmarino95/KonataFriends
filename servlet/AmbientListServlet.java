@@ -114,7 +114,7 @@ public class AmbientListServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		id = (request.getParameter("ambID"));
+		//id = (request.getParameter("ambID"));
 		way = (request.getParameter("way"));
 		
 		idInt = Integer.parseInt(id);
