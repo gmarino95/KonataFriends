@@ -146,7 +146,7 @@ public class DBUtils {
 	
 	public static ArrayList<Ambiente> queryAmbienti(Connection conn, String name) throws SQLException, ZeroException, NullException {
 				
-		String sql = "SELECT a.ID, a.Nome, t.Tipo, a.Ubicazione, a.numeroSensori FROM Ambiente a INNER JOIN Utente u INNER JOIN TipologiaA t WHERE a.id = u.AmbienteID AND a.TipologiaA = t.ID AND Nome_Utente = ?;";
+		String sql = "SELECT a.Cod, a.Nome, t.Tipo, a.Ubicazione, a.numeroSensori FROM Ambiente a INNER JOIN Utente u INNER JOIN TipologiaA t WHERE a.Cod = u.AmbienteID AND a.TipologiaA = t.ID AND Nome_Utente = ?;";
 		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		
@@ -158,7 +158,7 @@ public class DBUtils {
 		
 		while(rs.next()) {
 			
-			int id = rs.getInt("ID");
+			int id = rs.getInt("Cod");
 			String nome = rs.getString("Nome");
 			String tipologia = rs.getString("Tipo");
 			String ubicazione = rs.getString("Ubicazione");
@@ -179,11 +179,11 @@ public class DBUtils {
 	
 	public static Ambiente findAmbiente(Connection conn, String idStr) throws SQLException, ZeroException, NullException {
 		
-		String sql = "SELECT a.Nome, a.TipologiaA, a.Ubicazione, a.NumeroSensori FROM Ambiente a WHERE a.ID = " + idStr + ";";
+		String sql = "SELECT a.Nome, a.TipologiaA, a.Ubicazione, a.NumeroSensori FROM Ambiente a WHERE a.Cod = ?;";
 		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		
-		//pstm.setString(1, idStr);
+		pstm.setString(1, idStr);
 		
 		ResultSet rs = pstm.executeQuery();
 		
@@ -215,17 +215,17 @@ public class DBUtils {
 	}
 	
 	public static void deleteAmbient(Connection conn, String id) throws SQLException {
-		String sql = "DELETE FROM Ambiente WHERE Id = " + id + ";";
+		String sql = "DELETE FROM Ambiente WHERE Cod = ?;";
 		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		
-		//pstm.setString(1, id);
+		pstm.setString(1, id);
 		
 		pstm.executeUpdate();
 	}
 	
 	public static void updateAmbient(Connection conn, Ambiente ambient) throws SQLException {
-		String sql = "UPDATE Ambiente SET Nome = ?, Ubicazione = ?, TipologiaA = ?, NumeroSensori = ? WHERE Id = ?;";
+		String sql = "UPDATE Ambiente SET Nome = ?, Ubicazione = ?, TipologiaA = ?, NumeroSensori = ? WHERE Cod = ?;";
 		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		
@@ -240,11 +240,11 @@ public class DBUtils {
 
 	public static ArrayList<Sensore> querySensori(Connection conn, String ambID) throws SQLException, ZeroException, NullException {
 		
-		String sql = "SELECT s.Cod, s.Modello, s.Marca, t.Tipo, s.Anno FROM Sensore s INNER JOIN Ambiente a INNER JOIN TipologiaS t WHERE a.ID = s.Ambiente AND t.ID = s.TipologiaS AND s.Ambiente = " + ambID + ";";
+		String sql = "SELECT s.Cod, s.Modello, s.Marca, t.Tipo, s.Anno FROM Sensore s INNER JOIN Ambiente a INNER JOIN TipologiaS t WHERE a.Cod = s.Ambiente AND t.ID = s.TipologiaS AND s.Ambiente = ?;";
 		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		
-		//pstm.setString(1, ambID);
+		pstm.setString(1, ambID);
 		
 		ResultSet rs = pstm.executeQuery();
 		
@@ -404,11 +404,11 @@ public class DBUtils {
 
 	public static ArrayList<Rilevazione> querySintesi(Connection conn, String ambID) throws SQLException, ZeroException, NullException {
 
-		String sql = "SELECT s.Modello, s.Marca, r.Messaggio, r.Descrizione, r.Data FROM Rilevazione r JOIN Sensore s JOIN Ambiente a WHERE r.Sensore = s.Cod AND a.ID = s.Ambiente AND a.ID = " + ambID + "ORDER BY r.Data;";
+		String sql = "SELECT s.Modello, s.Marca, r.Messaggio, r.Descrizione, r.Data FROM Rilevazione r JOIN Sensore s JOIN Ambiente a WHERE r.Sensore = s.Cod AND a.Cod = s.Ambiente AND a.Cod = ? ORDER BY r.Data;";
 		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		
-		//pstm.setString(1, ambID);
+		pstm.setString(1, ambID);
 		
 		ResultSet rs = pstm.executeQuery();
 		
@@ -462,24 +462,24 @@ public class DBUtils {
 	
 	public static void incrementSens(Connection conn, Ambiente amb, int id) throws SQLException {
 		
-		String sql = "UPDATE Ambiente SET NumeroSensori = ? WHERE ID = " + id + ";";
+		String sql = "UPDATE Ambiente SET NumeroSensori = ? WHERE Cod = ?;";
 		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		
 		pstm.setInt(1, (amb.getNumeroSensori() + 1));
-		//pstm.setInt(2, id);
+		pstm.setInt(2, id);
 		
 		pstm.executeUpdate();
 	}
 	
 	public static void decrementSens(Connection conn, Ambiente amb, int id) throws SQLException {
 		
-		String sql = "UPDATE Ambiente SET NumeroSensori = ? WHERE ID = " + id + ";";
+		String sql = "UPDATE Ambiente SET NumeroSensori = ? WHERE Cod = ?;";
 		
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		
 		pstm.setInt(1,(amb.getNumeroSensori() - 1));
-		//pstm.setInt(2, id);
+		pstm.setInt(2, id);
 		
 		pstm.executeUpdate();
 	}
