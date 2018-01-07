@@ -29,7 +29,7 @@ public class AmbientListServlet extends HttpServlet {
 	/**
 	 * id dell'ambiente
 	 */
-	public static String id = null;
+	public static String id = request.getParameter("ambID");
 	/**
 	 * indicatore per la scelta della vista collegata
 	 * al pulsante premuto
