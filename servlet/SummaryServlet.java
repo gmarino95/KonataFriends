@@ -48,11 +48,9 @@ public class SummaryServlet extends HttpServlet {
 		String errorString = null;
 		sintesi = null;
 		
-		final String amb = AmbientListServlet.id;
-		
 		try {
 			
-			sintesi = DBUtils.querySintesi(conn, amb);
+			sintesi = DBUtils.querySintesi(conn, AmbientListServlet.id);
 			
 		} catch(SQLException e) {
 			
