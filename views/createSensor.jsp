@@ -4,6 +4,7 @@
 <!DOCTYPE html> 
 
 <html>
+<%--createSensor --%>
 	<head>
 		<meta charset = "UTF-8">
 		<title>Creazione Sensore</title>

@@ -4,6 +4,7 @@
 <!DOCTYPE html> 
 
 <html>
+<%--deleteUserError --%>
 	<head>
 		<meta charset = "UTF-8">
 		<title>Elimina Utente</title>

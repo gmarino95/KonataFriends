@@ -4,6 +4,7 @@
 <!DOCTYPE html> 
 
 <html>
+<%--deleteAmbientError --%>
 	<head>
 		<meta charset = "UTF-8">
 		<title>Elimina Ambiente</title>

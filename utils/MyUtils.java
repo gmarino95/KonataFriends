@@ -117,8 +117,14 @@ public class MyUtils {
 		
 		Cookie cookieUserName = new Cookie(ATT_NAME_NAME, username);
 		
+		cookieUserName.setMaxAge(-1);
+		cookieUserName.setSecure(true);
+		cookieUserName.setHttpOnly(true);
+		cookieUserName.setPath("allowedPath");
+		cookieUserName.setDomain("allowedDomain.es");
+
 		//1 day (converted to seconds)
-		cookieUserName.setMaxAge(24*60*60);
+		//cookieUserName.setMaxAge(24*60*60);
 		response.addCookie(cookieUserName);
 	}
 	
@@ -141,8 +147,14 @@ public class MyUtils {
 		
 		Cookie cookieUserName = new Cookie(ATT_NAME_NAME, null);
 		
-		//0 seconds (this cookie expire immediately)
 		cookieUserName.setMaxAge(0);
+		cookieUserName.setSecure(true);
+		cookieUserName.setHttpOnly(true);
+		cookieUserName.setPath("allowedPath");
+		cookieUserName.setDomain("allowedDomain.es");
+		
+		//0 seconds (this cookie expire immediately)
+		//cookieUserName.setMaxAge(0);
 		
 		response.addCookie(cookieUserName);
 	}

@@ -4,6 +4,7 @@
 <!DOCTYPE html> 
 
 <html>
+<%--deleteSensorError --%>
 	<head>
 		<meta charset = "UFT-8">
 		<title>Elimina Sensore</title>
