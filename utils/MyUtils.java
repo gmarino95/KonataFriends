@@ -87,8 +87,9 @@ public class MyUtils {
 	// Store user info in Session.
 	public static void storeLoginedUser(HttpSession session, String nome, String chiave) {
 		// On the JSP can access via ${loginedUser}
+		UserAccount loginedUser = new UserAccount(nome, chiave);
 		if(nome != null && chiave != null && nome.matches("[0-9a-zA-Z_]+") && chiave.matches("[0-9a-zA-Z_]+"))
-			session.setAttribute("loginedUser", new UserAccount(nome, chiave));
+			session.setAttribute("loginedUser", loginedUser);
 		else
 			System.out.println();
 	}
